@@ -1,6 +1,6 @@
 import React from 'react'
 
-const imageDetails = ({params}: {params:{id:string}}) => {
+const imageDetails = () => {
   return (
     <div>
       imageDetails
