@@ -1,8 +1,12 @@
+import Header from '@/components/organisms/Header'
 import React from 'react'
 
 const Create = () => {
   return (
-    <div>Create</div>
+    <div>
+      <Header title='Transformation Title' subtitle='Transformation Subtitle ' />
+      Create
+    </div>
   )
 }
 
