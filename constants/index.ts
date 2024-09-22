@@ -119,7 +119,7 @@ export const plans = [
   },
 ];
 
-export const transformationTypes = {
+export const imageToolTypes = {
   restore: {
     type: "restore",
     title: "Restore Image",

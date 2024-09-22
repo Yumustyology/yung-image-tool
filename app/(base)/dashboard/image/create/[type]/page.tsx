@@ -1,10 +1,12 @@
 import Header from '@/components/organisms/Header'
+import { imageToolTypes } from '@/constants'
 import React from 'react'
 
-const Create = () => {
+const Create = ({params: {type}}:SearchParamProps) => {
+  const imageToolInfo = imageToolTypes[type]
   return (
     <div>
-      <Header title='Transformation Title' subtitle='Transformation Subtitle ' />
+      <Header title={imageToolInfo.title} subtitle={imageToolInfo.subTitle} />
       Create
     </div>
   )
