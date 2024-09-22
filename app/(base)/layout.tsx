@@ -2,7 +2,7 @@ import MobileNav from "@/components/organisms/MobileNav";
 import Sidebar from "@/components/organisms/Sidebar";
 import React, { ReactNode } from "react";
 
-export const Layout = ({ children }: { children: ReactNode }) => {
+export const layout = ({ children }: { children: ReactNode }) => {
   return (
     <main className="base">
       <Sidebar />
@@ -14,4 +14,4 @@ export const Layout = ({ children }: { children: ReactNode }) => {
   );
 };
 
-export default Layout;
+export default layout;
