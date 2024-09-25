@@ -1,11 +1,11 @@
 "use server";
 
+import { updateCredits } from '@/lib/actions/user.actions';
+import Transaction from '@/lib/db/models/transactions.model';
+import { connectToDatabase } from '@/lib/db/mongoose.conn';
+import { handleError } from '@/lib/utils';
 import { redirect } from 'next/navigation'
 import Stripe from 'stripe';
-import { connectToDatabase } from '../db/mongoose.conn';
-import { handleError } from '../utils';
-import { updateCredits } from './user.actions';
-import Transaction from '../db/models/transactions.model';
 
 export async function checkoutCredits(transaction: CheckoutTransactionParams) {
   const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!);
@@ -31,7 +31,7 @@ export async function checkoutCredits(transaction: CheckoutTransactionParams) {
       buyerId: transaction.buyerId,
     },
     mode: 'payment',
-    success_url: `${process.env.NEXT_PUBLIC_SERVER_URL}/dashboard/profile`,
+    success_url: `${process.env.NEXT_PUBLIC_SERVER_URL}/dashboarddashboard/profile`,
     cancel_url: `${process.env.NEXT_PUBLIC_SERVER_URL}/dashboard/`,
   })
 
