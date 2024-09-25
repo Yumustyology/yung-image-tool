@@ -21,7 +21,7 @@ import { Button } from "../ui/button";
 import { deleteImage } from "@/lib/actions/Image.actions";
 
 export const DeleteConfirmation = ({ imageId }: { imageId: string }) => {
-  const [isPending, startTransition] = useTransition();
+  const [, startTransition] = useTransition();
 
   return (
     <AlertDialog>
