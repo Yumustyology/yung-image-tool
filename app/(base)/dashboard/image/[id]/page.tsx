@@ -1,11 +1,102 @@
-import React from 'react'
+import { auth } from "@clerk/nextjs/server";
+import Image from "next/image";
+import Link from "next/link";
 
-const imageDetails = () => {
+import { Button } from "@/components/ui/button";
+import { getImageSize } from "@/lib/utils";
+import { getImageById } from "@/lib/actions/Image.actions";
+import Header from "@/components/organisms/Header";
+import CreatedImage from "@/components/organisms/CreatedImage";
+import { DeleteConfirmation } from "@/components/molecules/DeleteConfirmation";
+
+const ImageDetails = async ({ params: { id } }: SearchParamProps) => {
+  const { userId } = auth();
+
+  const image = await getImageById(id);
+
   return (
-    <div>
-      imageDetails
-    </div>
-  )
-}
+    <>
+      <Header title={image.title} />
 
-export default imageDetails
+      <section className="mt-5 flex flex-wrap gap-4">
+        <div className="p-14-medium md:p-16-medium flex gap-2">
+          <p className="text-gray-600">Transformation:</p>
+          <p className=" capitalize text-purple-400">
+            {image.createImageType}
+          </p>
+        </div>
+
+        {image.prompt && (
+          <>
+            <p className="hidden text-dark-400/50 md:block">&#x25CF;</p>
+            <div className="p-14-medium md:p-16-medium flex gap-2 ">
+              <p className="text-gray-600">Prompt:</p>
+              <p className=" capitalize text-purple-400">{image.prompt}</p>
+            </div>
+          </>
+        )}
+
+        {image.color && (
+          <>
+            <p className="hidden text-dark-400/50 md:block">&#x25CF;</p>
+            <div className="p-14-medium md:p-16-medium flex gap-2">
+              <p className="text-gray-600">Color:</p>
+              <p className=" capitalize text-purple-400">{image.color}</p>
+            </div>
+          </>
+        )}
+
+        {image.aspectRatio && (
+          <>
+            <p className="hidden text-dark-400/50 md:block">&#x25CF;</p>
+            <div className="p-14-medium md:p-16-medium flex gap-2">
+              <p className="text-gray-600">Aspect Ratio:</p>
+              <p className=" capitalize text-purple-400">{image.aspectRatio}</p>
+            </div>
+          </>
+        )}
+      </section>
+
+      <section className="mt-10 border-t border-dark-400/15">
+        <div className="transformation-grid">
+          {/* MEDIA UPLOADER */}
+          <div className="flex flex-col gap-4">
+            <h3 className="h3-bold text-gray-600">Original</h3>
+
+            <Image
+              width={getImageSize(image.createImageType, image, "width")}
+              height={getImageSize(image.createImageType, image, "height")}
+              src={image.secureURL}
+              alt="image"
+              className="transformation-original_image"
+            />
+          </div>
+
+          {/* CREATED IMAGE */}
+          <CreatedImage
+            image={image}
+            type={image.createImageType}
+            title={image.title}
+            isCreating={false}
+            creationConfig={image.config}
+            hasDownload={true}
+          />
+        </div>
+
+        {userId === image.author.clerkId && (
+          <div className="mt-4 space-y-4">
+            <Button asChild type="button" className="submit-button capitalize">
+              <Link href={`/dashboard/image/${image._id}/update`}>
+                Update Image
+              </Link>
+            </Button>
+
+            <DeleteConfirmation imageId={image._id} />
+          </div>
+        )}
+      </section>
+    </>
+  );
+};
+
+export default ImageDetails;

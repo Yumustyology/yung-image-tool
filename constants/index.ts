@@ -31,12 +31,12 @@ export const navLinks = [
   },
   {
     label: "Profile",
-    route: "/profile",
+    route: "/dashboard/profile",
     icon: "/assets/icons/profile.svg",
   },
   {
     label: "Buy Credits",
-    route: "/credits",
+    route: "/dashboard/credits",
     icon: "/assets/icons/bag.svg",
   },
 ];

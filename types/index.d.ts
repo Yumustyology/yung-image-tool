@@ -22,7 +22,7 @@ declare type AddImageParams = {
   image: {
     title: string;
     publicId: string;
-    transformationType: string;
+    createImageType: string;
     width: number;
     height: number;
     config: any;
@@ -41,7 +41,7 @@ declare type UpdateImageParams = {
     _id: string;
     title: string;
     publicId: string;
-    transformationType: string;
+    createImageType: string;
     width: number;
     height: number;
     config: any;
@@ -55,7 +55,7 @@ declare type UpdateImageParams = {
   path: string;
 };
 
-declare type Transformations = {
+declare type ImageCreations = {
   restore?: boolean;
   fillBackground?: boolean;
   remove?: {
@@ -88,7 +88,7 @@ declare type CreateTransactionParams = {
   createdAt: Date;
 };
 
-declare type TransformationTypeKey =
+declare type CreateImageTypeKey =
   | "restore"
   | "fill"
   | "remove"
@@ -114,25 +114,25 @@ declare type RemoveUrlQueryParams = {
 };
 
 declare type SearchParamProps = {
-  params: { id: string; type: TransformationTypeKey };
+  params: { id: string; type: CreateImageTypeKey };
   searchParams: { [key: string]: string | string[] | undefined };
 };
 
-declare type TransformationFormProps = {
+declare type CreateImageFormProps = {
   action: "Add" | "Update";
   userId: string;
-  type: TransformationTypeKey;
+  type: CreateImageTypeKey;
   creditBalance: number;
   data?: IImage | null;
-  config?: Transformations | null;
+  config?: ImageCreations | null;
 };
 
-declare type TransformedImageProps = {
+declare type CreatedImageProps = {
   image: any;
   type: string;
   title: string;
-  transformationConfig: Transformations | null;
-  isTransforming: boolean;
+  creationConfig: ImageCreations | null;
+  isCreating: boolean;
   hasDownload?: boolean;
-  setIsTransforming?: React.Dispatch<React.SetStateAction<boolean>>;
+  setIsCreating?: React.Dispatch<React.SetStateAction<boolean>>;
 };

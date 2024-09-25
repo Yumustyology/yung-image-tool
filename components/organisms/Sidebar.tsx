@@ -29,7 +29,7 @@ const Sidebar = () => {
                   <li
                     key={link.route}
                     className={`sidebar-nav_element group ${
-                      isActive ? "bg-purple-gradient text-white" : "to-gray-700"
+                      isActive ? "bg-purple-gradient text-white" : "to-gray-100"
                     }`}
                   >
                     <Link className="sidebar-link" href={link.route}>
@@ -84,5 +84,7 @@ const Sidebar = () => {
     </aside>
   );
 };
+
+
 
 export default Sidebar;
