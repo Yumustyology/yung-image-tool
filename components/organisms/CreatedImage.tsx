@@ -53,11 +53,16 @@ const CreatedImage = ({ image, type, title, creationConfig, isCreating, setIsCre
             placeholder={dataUrl as PlaceholderValue}
             className="transformed-image"
             onLoad={() => {
-              setIsCreating && setIsCreating(false);
+              if(setIsCreating){
+                 setIsCreating(false);
+              }
             }}
             onError={() => {
               debounce(() => {
-                setIsCreating && setIsCreating(false);
+                if(setIsCreating){
+                  setIsCreating(false);
+                } 
+                  
               }, 8000)()
             }}
             {...creationConfig}
