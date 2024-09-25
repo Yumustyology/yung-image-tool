@@ -43,7 +43,7 @@ const CreateImageForm = ({ action, data = null, userId, type, creditBalance, con
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isCreating, setIsCreating] = useState(false);
   const [creationConfig, setCreationConfig] = useState(config)
-  const [isPending, startTransition] = useTransition()
+  const [, startTransition] = useTransition()
 
   const router = useRouter()
 
