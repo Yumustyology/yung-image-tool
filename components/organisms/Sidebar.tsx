@@ -12,9 +12,9 @@ const Sidebar = () => {
   return (
     <aside className="sidebar">
       <div className="flex size-full flex-col gap-4">
-        <Link href="/" className="sidebar-logo">
+        <Link href="/dashboard" className="sidebar-logo">
           <Image
-            src={"/assets/images/logo-text.svg"}
+            src={"/assets/images/creatiyung-logo.jpg"}
             alt="logo"
             width={180}
             height={20}
