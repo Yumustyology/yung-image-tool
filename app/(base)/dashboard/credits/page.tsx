@@ -30,15 +30,15 @@ const Credits = async () => {
             <li key={plan.name} className="credits-item">
               <div className="flex-center flex-col gap-3">
                 <Image src={plan.icon} alt="check" width={50} height={50} />
-                <p className="p-20-semibold mt-2 text-purple-500">
+                <p className="p-20-semibold mt-2 text-gray-600">
                   {plan.name}
                 </p>
-                <p className="h1-semibold text-dark-600">${plan.price}</p>
-                <p className="p-16-regular">{plan.credits} Credits</p>
+                <p className="h1-semibold text-gray-500">${plan.price}</p>
+                <p className="p-16-regular text-gray-400">{plan.credits} Credits</p>
               </div>
 
               {/* Inclusions */}
-              <ul className="flex flex-col gap-5 py-9">
+              <ul className="flex flex-col gap-5 py-9 text-gray-400">
                 {plan.inclusions.map((inclusion) => (
                   <li
                     key={plan.name + inclusion.label}
