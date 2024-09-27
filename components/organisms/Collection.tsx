@@ -94,7 +94,6 @@ export const Collection = ({
 };
 
 const Card = ({ image }: { image: IImage }) => {
-  console.log(image.publicId, image.width, image.height);
 
   return (
     <li>

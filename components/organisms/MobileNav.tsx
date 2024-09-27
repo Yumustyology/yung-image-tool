@@ -14,7 +14,7 @@ const MobileNav = () => {
     <header className="header">
       <Link href={"/dashboard"} className="flex items-center gap-2 py-2">
         <Image
-          src={"/assets/images/creatiyung-logo.jpg"}
+          src={"/assets/images/creatiyung-logo.png"}
           alt="logo"
           width={180}
           height={28}
@@ -36,7 +36,7 @@ const MobileNav = () => {
             </SheetTrigger>
             <SheetContent className="sheet-content sm:w-64 bg-white">
               <Image
-                src="assets/images/creatiyung-logo.jpg"
+                src="assets/images/creatiyung-logo.png"
                 alt="logo"
                 width={152}
                 height={23}
