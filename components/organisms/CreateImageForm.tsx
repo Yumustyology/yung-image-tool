@@ -290,7 +290,8 @@ const CreateImageForm = ({ action, data = null, userId, type, creditBalance, con
         <div className="flex flex-col gap-4">
           <Button 
             type="button"
-            className="submit-button capitalize"
+            variant={"outline"}
+            className="submit-button capitalize !bg-none text-black cursor-pointer"
             disabled={isCreating || newCreation === null}
             onClick={onCreateHandler}
           >
@@ -298,7 +299,7 @@ const CreateImageForm = ({ action, data = null, userId, type, creditBalance, con
           </Button>
           <Button 
             type="submit"
-            className="submit-button capitalize"
+            className="submit-button capitalize text-white"
             disabled={isSubmitting}
           >
             {isSubmitting ? 'Saving...' : 'Save Image'}
