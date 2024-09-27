@@ -12,7 +12,7 @@ const ibm = IBM_Plex_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "AI-Powered tool",
+  title: "Yung AI-Powered Image tool",
   description: "Yung AI-Powered ultimate image tool",
 };
 
