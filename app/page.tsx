@@ -1,9 +1,19 @@
-import React from 'react'
+'use client';
+import { useEffect } from 'react';
+import { useRouter } from 'next/navigation';
 
 const LandingPage = () => {
-  return (
-    <div>LandingPage</div>
-  )
-}
+  const router = useRouter();
 
-export default LandingPage
+  useEffect(() => {
+    router.replace('/dashboard');
+  }, [router]);
+
+  return (
+    <div className="flex items-center justify-center h-screen text-xl font-semibold">
+      Redirecting to Dashboard...
+    </div>
+  );
+};
+
+export default LandingPage;
